@@ -3,8 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="وب‌سایت حرفه‌ای SayedHafiz Sharifi؛ محصل انجنیری نرم‌افزار، طراح وب و علاقه‌مند به ساخت راه‌حل‌های دیجیتالی." />
+  <meta name="keywords" content="SayedHafiz Sharifi, Software Engineering, Web Developer, Portfolio, HTML, CSS, JavaScript" />
+  <meta name="author" content="SayedHafiz Sharifi" />
   <title>SayedHafiz Sharifi | Professional Website</title>
+
   <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #06b6d4;
+      --dark: #0f172a;
+      --dark-2: #1e293b;
+      --text: #334155;
+      --muted: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 20px 55px rgba(15, 23, 42, 0.12);
+      --radius: 24px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,379 +35,616 @@
     }
 
     body {
-      background: #f4f7fb;
-      color: #1f2937;
+      background: var(--light);
+      color: var(--text);
       line-height: 1.8;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
     }
 
     .container {
-      width: 90%;
-      max-width: 1200px;
+      width: min(92%, 1180px);
       margin: auto;
     }
 
-    header {
-      background: #0f172a;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    .ltr {
+      direction: ltr;
+      unicode-bidi: embed;
+      display: inline-block;
+      font-family: Arial, sans-serif;
     }
 
-    nav {
-      min-height: 75px;
+    .top-bar {
+      background: #020617;
+      color: #cbd5e1;
+      font-size: 13px;
+      padding: 9px 0;
+    }
+
+    .top-bar .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #38bdf8;
-      letter-spacing: 0.5px;
+    .top-bar strong {
+      color: #e0f2fe;
+    }
+
+    header {
+      background: rgba(15, 23, 42, 0.97);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: white;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+      letter-spacing: 1px;
+    }
+
+    .brand-text h1 {
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      color: #93c5fd;
+      font-size: 12px;
     }
 
     .nav-links {
       display: flex;
-      list-style: none;
-      gap: 25px;
-      font-size: 15px;
+      align-items: center;
+      gap: 22px;
+      color: #e2e8f0;
+      font-size: 14px;
     }
 
     .nav-links a {
-      color: #e5e7eb;
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
     .nav-links a:hover {
       color: #38bdf8;
     }
 
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.28);
+    }
+
     .hero {
-      min-height: 92vh;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(14, 116, 144, 0.9)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80');
-      background-size: cover;
-      background-position: center;
+      position: relative;
+      min-height: 88vh;
       color: white;
       display: flex;
       align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(14, 165, 233, 0.35), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(37, 99, 235, 0.35), transparent 32%),
+        linear-gradient(135deg, #020617 0%, #0f172a 52%, #164e63 100%);
     }
 
-    .hero-content {
-      max-width: 720px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent);
     }
 
-    .hero .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: #bae6fd;
-      border: 1px solid rgba(186, 230, 253, 0.4);
-      padding: 8px 18px;
-      border-radius: 50px;
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 46px;
+      align-items: center;
+      padding: 86px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 165, 233, 0.13);
+      color: #bfdbfe;
+      border: 1px solid rgba(147, 197, 253, 0.35);
+      border-radius: 999px;
+      padding: 9px 16px;
       margin-bottom: 22px;
       font-size: 14px;
     }
 
-    .hero h1 {
-      font-size: 52px;
-      line-height: 1.25;
-      margin-bottom: 20px;
+    .hero h2 {
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: 1.18;
+      margin-bottom: 22px;
+      letter-spacing: -1px;
     }
 
-    .hero h1 span {
+    .hero h2 span {
       color: #38bdf8;
     }
 
     .hero p {
-      color: #e5e7eb;
+      color: #dbeafe;
       font-size: 18px;
-      margin-bottom: 35px;
-      max-width: 650px;
+      max-width: 720px;
+      margin-bottom: 34px;
     }
 
-    .buttons {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      margin-bottom: 34px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 14px;
+      padding: 13px 24px;
+      font-weight: 800;
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
     }
 
     .btn-primary {
-      background: #38bdf8;
-      color: #082f49;
-    }
-
-    .btn-primary:hover {
-      background: #7dd3fc;
-      transform: translateY(-3px);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
     }
 
     .btn-outline {
-      border: 1px solid #bae6fd;
       color: white;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.06);
     }
 
-    .btn-outline:hover {
-      background: white;
-      color: #0f172a;
+    .btn:hover {
       transform: translateY(-3px);
     }
 
-    section {
-      padding: 90px 0;
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 55px;
+    .hero-points span {
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
     }
 
-    .section-title h2 {
-      font-size: 36px;
-      color: #0f172a;
-      margin-bottom: 12px;
+    .hero-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(16px);
     }
 
-    .section-title p {
-      color: #64748b;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about-card {
-      background: white;
-      padding: 35px;
-      border-radius: 22px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-    }
-
-    .profile-box {
-      text-align: center;
-      background: linear-gradient(180deg, #0f172a, #164e63);
-      color: white;
-      padding: 40px 25px;
+    .profile-panel {
+      background: #020617;
       border-radius: 24px;
-      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.2);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      overflow: hidden;
     }
 
-    .profile-img {
-      width: 155px;
-      height: 155px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #38bdf8;
+    .profile-panel-header {
+      padding: 18px 22px;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      color: #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status {
+      color: #86efac;
+      font-size: 13px;
+    }
+
+    .profile-panel-body {
+      padding: 28px;
+    }
+
+    .big-mark {
+      width: 92px;
+      height: 92px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      font-weight: 900;
+      color: white;
       margin-bottom: 22px;
-      background: #e5e7eb;
+      box-shadow: 0 18px 50px rgba(37, 99, 235, 0.35);
     }
 
-    .profile-box h3 {
-      font-size: 25px;
+    .profile-panel h3 {
+      color: white;
+      font-size: 28px;
       margin-bottom: 8px;
     }
 
-    .profile-box p {
-      color: #bae6fd;
+    .profile-panel p {
+      color: #bfdbfe;
+      font-size: 15px;
+      margin-bottom: 20px;
     }
 
-    .about-card h3 {
-      font-size: 26px;
-      color: #0f172a;
-      margin-bottom: 18px;
-    }
-
-    .about-card p {
-      color: #475569;
-      margin-bottom: 18px;
-    }
-
-    .info-list {
+    .panel-list {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 20px;
+      gap: 11px;
     }
 
-    .info-item {
-      background: #f8fafc;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
+    .panel-list div {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #dbeafe;
+      padding: 12px 14px;
+      border-radius: 14px;
       font-size: 14px;
     }
 
-    .info-item strong {
-      color: #0f172a;
+    section {
+      padding: 92px 0;
     }
 
-    .services {
-      background: #ffffff;
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 54px;
     }
 
-    .cards {
+    .section-header span {
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .section-header h2 {
+      color: var(--dark);
+      font-size: clamp(30px, 4vw, 43px);
+      margin: 8px 0 14px;
+      line-height: 1.35;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-layout {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .card {
-      background: #ffffff;
-      padding: 32px;
-      border-radius: 22px;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-      transition: 0.3s;
+    .identity-card,
+    .about-content,
+    .service-card,
+    .process-card,
+    .contact-info,
+    .contact-form {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.13);
-    }
-
-    .icon {
-      width: 58px;
-      height: 58px;
-      background: #e0f2fe;
-      color: #0284c7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      font-size: 28px;
-      margin-bottom: 22px;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .card p {
-      color: #64748b;
-      font-size: 15px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .project {
-      background: white;
-      border-radius: 22px;
+    .identity-card {
+      background: linear-gradient(145deg, var(--dark), #164e63);
+      color: white;
+      padding: 34px;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
     }
 
-    .project img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
+    .identity-card::after {
+      content: "SH";
+      position: absolute;
+      left: 22px;
+      bottom: -18px;
+      font-size: 130px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.05);
+      letter-spacing: -8px;
     }
 
-    .project-content {
-      padding: 24px;
+    .identity-card h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
     }
 
-    .project-content h3 {
-      margin-bottom: 10px;
-      color: #0f172a;
+    .identity-card p {
+      color: #dbeafe;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
 
-    .project-content p {
-      color: #64748b;
-      font-size: 15px;
+    .identity-list {
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .identity-list div {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 13px 15px;
+      color: #e0f2fe;
+    }
+
+    .about-content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 34px;
+    }
+
+    .about-content h3 {
+      font-size: 28px;
+      color: var(--dark);
       margin-bottom: 16px;
     }
 
-    .project-link {
-      color: #0284c7;
-      font-weight: bold;
+    .about-content p {
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .highlights div {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .highlights strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .services {
+      background: var(--white);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card,
+    .process-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 30px;
+      transition: 0.25s;
+    }
+
+    .service-card:hover,
+    .process-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      background: #eff6ff;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3,
+    .process-card h3 {
+      color: var(--dark);
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p,
+    .process-card p {
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .skills {
-      background: #0f172a;
+      background: linear-gradient(135deg, var(--dark), #082f49);
       color: white;
     }
 
-    .skills .section-title h2 {
+    .skills .section-header h2,
+    .skills .section-header p {
       color: white;
     }
 
-    .skills .section-title p {
-      color: #cbd5e1;
-    }
-
-    .skill-grid {
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .skill {
-      background: rgba(255, 255, 255, 0.06);
-      padding: 22px;
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 14px;
       text-align: center;
+      color: #e0f2fe;
+      font-weight: 800;
     }
 
-    .skill h3 {
-      color: #38bdf8;
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .process-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .cta {
+      padding: 0 0 92px;
+    }
+
+    .cta-box {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.22), transparent 28%),
+        linear-gradient(135deg, #020617, #1e3a8a);
+      color: white;
+      border-radius: 34px;
+      padding: 46px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: 32px;
       margin-bottom: 8px;
     }
 
-    .contact {
-      background: #ffffff;
+    .cta-box p {
+      color: #dbeafe;
+      max-width: 650px;
     }
 
-    .contact-box {
-      background: linear-gradient(135deg, #0f172a, #155e75);
-      color: white;
-      border-radius: 28px;
-      padding: 45px;
+    .contact-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .contact-info h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
+    .contact-info,
+    .contact-form {
+      padding: 34px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-info {
+      background: linear-gradient(145deg, var(--dark), #155e75);
+      color: white;
+    }
+
+    .contact-form {
+      background: var(--white);
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      font-size: 27px;
+      margin-bottom: 14px;
+    }
+
+    .contact-info p,
+    .contact-form p {
+      margin-bottom: 22px;
     }
 
     .contact-info p {
       color: #dbeafe;
-      margin-bottom: 20px;
     }
 
-    .contact-detail {
+    .contact-form p {
+      color: var(--muted);
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       margin-bottom: 12px;
       color: #e0f2fe;
     }
@@ -399,31 +654,35 @@
       gap: 14px;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
-      padding: 14px;
-      border: none;
-      outline: none;
-      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 15px;
+      padding: 14px 15px;
       font-size: 15px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 130px;
       resize: vertical;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
     }
 
     footer {
       background: #020617;
-      color: #cbd5e1;
+      color: #94a3b8;
+      padding: 30px 0;
       text-align: center;
-      padding: 28px 0;
       font-size: 14px;
     }
 
@@ -435,253 +694,348 @@
       height: 58px;
       background: #22c55e;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border-radius: 50%;
-      font-size: 30px;
-      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.45);
-      z-index: 1001;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      box-shadow: 0 16px 35px rgba(34, 197, 94, 0.42);
+      z-index: 999;
+      transition: 0.25s;
     }
 
-    @media (max-width: 900px) {
+    .whatsapp-btn:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    @media (max-width: 1000px) {
       .nav-links {
         display: none;
       }
 
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .about-grid,
-      .contact-box {
+      .hero-layout,
+      .about-layout,
+      .contact-layout {
         grid-template-columns: 1fr;
       }
 
-      .cards,
-      .projects-grid {
-        grid-template-columns: 1fr 1fr;
+      .process-grid,
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .skill-grid {
-        grid-template-columns: 1fr 1fr;
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        min-height: 85vh;
+    @media (max-width: 640px) {
+      .top-bar .container {
+        justify-content: center;
+        text-align: center;
       }
 
-      .hero h1 {
-        font-size: 31px;
+      .brand-text h1 {
+        font-size: 16px;
+      }
+
+      .hero-layout {
+        padding: 62px 0;
       }
 
       .hero p {
         font-size: 16px;
       }
 
-      .cards,
-      .projects-grid,
-      .skill-grid,
-      .info-list {
+      .hero-card {
+        padding: 20px;
+      }
+
+      .grid-3,
+      .process-grid,
+      .skills-grid,
+      .highlights {
         grid-template-columns: 1fr;
       }
 
-      .contact-box {
-        padding: 28px;
+      section {
+        padding: 70px 0;
       }
 
-      section {
-        padding: 65px 0;
+      .cta {
+        padding-bottom: 70px;
+      }
+
+      .cta-box,
+      .contact-info,
+      .contact-form,
+      .about-content,
+      .identity-card {
+        padding: 26px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <div class="container">
+      <div>📧 <strong>Email:</strong> <span class="ltr">hafiz.sharifi2023@gmail.com</span></div>
+      <div>📞 <strong>WhatsApp:</strong> <span class="ltr">+93 749 919 185</span></div>
+    </div>
+  </div>
+
   <header>
     <div class="container">
       <nav>
-        <div class="logo">SayedHafiz</div>
+        <a href="#home" class="brand">
+          <div class="brand-mark">SH</div>
+          <div class="brand-text">
+            <h1>SayedHafiz Sharifi</h1>
+            <span>Software Engineering Student</span>
+          </div>
+        </a>
+
         <ul class="nav-links">
           <li><a href="#home">خانه</a></li>
           <li><a href="#about">درباره من</a></li>
           <li><a href="#services">خدمات</a></li>
-          <li><a href="#projects">پروژه‌ها</a></li>
           <li><a href="#skills">مهارت‌ها</a></li>
-          <li><a href="#contact">تماس</a></li>
+          <li><a href="#process">روند کار</a></li>
+          <li><a href="#contact" class="nav-cta">تماس</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <span class="badge">وب‌سایت شخصی و حرفه‌ای</span>
-        <h1>سلام، من <span>SayedHafiz Sharifi</span> هستم</h1>
-        <p>
-          محصل انجنیری نرم‌افزار، علاقه‌مند به طراحی وب‌سایت، برنامه‌نویسی، پروژه‌های تکنالوژی و ساخت راه‌حل‌های دیجیتالی مدرن.
-        </p>
-        <div class="buttons">
-          <a href="#projects" class="btn btn-primary">دیدن پروژه‌ها</a>
-          <a href="#contact" class="btn btn-outline">تماس با من</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-layout">
+          <div>
+            <div class="eyebrow">Professional Personal Website</div>
+            <h2>سلام، من <span>SayedHafiz Sharifi</span> هستم</h2>
+            <p>
+              محصل انجنیری نرم‌افزار با علاقه جدی به طراحی وب‌سایت، توسعه اپلیکیشن و ساخت راه‌حل‌های دیجیتالی. هدف من ساخت پروژه‌های منظم، زیبا، قابل استفاده و آماده ارائه است.
+            </p>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>درباره من</h2>
-        <p>معرفی کوتاه، واضح و حرفه‌ای برای نمایش توانایی‌ها و هدف کاری شما.</p>
-      </div>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">تماس با من</a>
+              <a href="#about" class="btn btn-outline">درباره من</a>
+            </div>
 
-      <div class="about-grid">
-        <div class="profile-box">
-          <img class="profile-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Profile Image" />
-          <h3>SayedHafiz Sharifi</h3>
-          <p>Software Engineering Student</p>
-        </div>
+            <div class="hero-points">
+              <span>Clean Design</span>
+              <span>Responsive Layout</span>
+              <span>Professional Profile</span>
+              <span>Modern Web</span>
+            </div>
+          </div>
 
-        <div class="about-card">
-          <h3>من کی هستم؟</h3>
-          <p>
-            من یک محصل رشته انجنیری نرم‌افزار هستم و روی طراحی وب‌سایت، توسعه اپلیکیشن، پروژه‌های HTML, CSS, JavaScript, Flutter و سیستم‌های کاربردی کار می‌کنم.
-          </p>
-          <p>
-            هدف من ساخت پروژه‌های ساده، منظم، قابل فهم و حرفه‌ای است که هم برای درس و هم برای کار واقعی قابل استفاده باشد.
-          </p>
-
-          <div class="info-list">
-            <div class="info-item"><strong>نام:</strong> SayedHafiz Sharifi</div>
-            <div class="info-item"><strong>رشته:</strong> Software Engineering</div>
-            <div class="info-item"><strong>موقعیت:</strong> Afghanistan</div>
-            <div class="info-item"><strong>تمرکز:</strong> Web & App Development</div>
+          <div class="hero-card">
+            <div class="profile-panel">
+              <div class="profile-panel-header">
+                <strong>Profile Overview</strong>
+                <span class="status">Available</span>
+              </div>
+              <div class="profile-panel-body">
+                <div class="big-mark">SH</div>
+                <h3>SayedHafiz Sharifi</h3>
+                <p>Software Engineering Student focused on web design, front-end development and practical digital solutions.</p>
+                <div class="panel-list">
+                  <div>Field: Software Engineering</div>
+                  <div>Focus: Web & App Development</div>
+                  <div>Email: <span class="ltr">hafiz.sharifi2023@gmail.com</span></div>
+                  <div>Phone: <span class="ltr">+93 749 919 185</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>خدمات من</h2>
-        <p>این بخش برای نمایش خدمات، توانایی‌ها یا موضوعاتی است که شما می‌توانید انجام دهید.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>طراحی وب‌سایت</h3>
-          <p>ساخت وب‌سایت‌های زیبا، ریسپانسیو و قابل استفاده برای افراد، فروشگاه‌ها و پروژه‌های درسی.</p>
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <span>ABOUT</span>
+          <h2>درباره من</h2>
+          <p>معرفی کوتاه، واضح و حرفه‌ای برای نمایش مسیر آموزشی، هدف کاری و توانایی‌های من.</p>
         </div>
 
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>اپلیکیشن موبایل</h3>
-          <p>طراحی رابط کاربری و ساخت اپلیکیشن‌های ساده با Flutter برای پروژه‌های عملی و آموزشی.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🛒</div>
-          <h3>فروشگاه آنلاین</h3>
-          <p>ساخت صفحات فروشگاه آنلاین برای نمایش محصولات، قیمت‌ها، کتگوری‌ها و معلومات تماس.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">
-        <h2>پروژه‌ها</h2>
-        <p>نمونه پروژه‌هایی که می‌توانید در این وب‌سایت نمایش دهید.</p>
-      </div>
-
-      <div class="projects-grid">
-        <div class="project">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Online Store" />
-          <div class="project-content">
-            <h3>Online Store Website</h3>
-            <p>وب‌سایت فروشگاهی برای نمایش محصولات، قیمت‌ها، دسته‌بندی‌ها و راه تماس.</p>
-            <a href="#" class="project-link">مشاهده پروژه</a>
+        <div class="about-layout">
+          <div class="identity-card">
+            <h3>SayedHafiz Sharifi</h3>
+            <p>Software Engineering Student</p>
+            <div class="identity-list">
+              <div>🎓 رشته: Software Engineering</div>
+              <div>💻 تمرکز: Web Design & App Development</div>
+              <div>📍 موقعیت: Afghanistan</div>
+              <div>📧 <span class="ltr">hafiz.sharifi2023@gmail.com</span></div>
+              <div>📞 <span class="ltr">+93 749 919 185</span></div>
+            </div>
           </div>
-        </div>
 
-        <div class="project">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=80" alt="Mobile App" />
-          <div class="project-content">
-            <h3>Flutter Mobile App</h3>
-            <p>اپلیکیشن موبایل با طراحی منظم، صفحه اصلی، منو و بخش پروفایل.</p>
-            <a href="#" class="project-link">مشاهده پروژه</a>
-          </div>
-        </div>
+          <div class="about-content">
+            <h3>معرفی حرفه‌ای</h3>
+            <p>
+              من در مسیر یادگیری و توسعه نرم‌افزار هستم و روی ساخت وب‌سایت‌های حرفه‌ای، رابط‌های کاربری تمیز و اپلیکیشن‌های ساده و کاربردی تمرکز دارم. برای من مهم است که هر پروژه ساختار واضح، طراحی مناسب و کد قابل فهم داشته باشد.
+            </p>
+            <p>
+              مهارت‌های اصلی من شامل HTML, CSS, JavaScript و Flutter است. هدفم این است که دانش دانشگاهی را با تمرین عملی ترکیب کنم و پروژه‌هایی بسازم که قابل ارائه، قابل توسعه و نزدیک به نیازهای واقعی باشند.
+            </p>
 
-        <div class="project">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="QR Code App" />
-          <div class="project-content">
-            <h3>QR Code Generator</h3>
-            <p>برنامه تولید QR Code با HTML, CSS و JavaScript همراه با قابلیت PWA.</p>
-            <a href="#" class="project-link">مشاهده پروژه</a>
+            <div class="highlights">
+              <div>
+                <strong>هدف کاری</strong>
+                ساخت راه‌حل‌های دیجیتالی ساده، حرفه‌ای و قابل استفاده.
+              </div>
+              <div>
+                <strong>روش کار</strong>
+                طراحی تمیز، کدنویسی منظم و توجه به تجربه کاربر.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="skills" id="skills">
-    <div class="container">
-      <div class="section-title">
-        <h2>مهارت‌ها</h2>
-        <p>مهارت‌هایی که می‌توانید در پروفایل حرفه‌ای خود نمایش دهید.</p>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span>SERVICES</span>
+          <h2>خدمات و توانایی‌ها</h2>
+          <p>بخش‌هایی که در آن‌ها مهارت دارم و می‌توانم برای پروژه‌های درسی یا کاری استفاده کنم.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>طراحی وب‌سایت</h3>
+            <p>ساخت صفحات مدرن، ریسپانسیو و تمیز برای معرفی شخصی، کسب‌وکار کوچک یا پروژه دانشگاهی.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>توسعه Front-End</h3>
+            <p>استفاده از HTML, CSS و JavaScript برای ساخت رابط کاربری منظم، قابل فهم و کاربردی.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>اپلیکیشن موبایل</h3>
+            <p>ساخت اپلیکیشن‌های ساده و آموزشی با Flutter همراه با طراحی واضح و ساختار منظم.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="skill-grid">
-        <div class="skill">
-          <h3>HTML</h3>
-          <p>ساختار صفحات وب</p>
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span>SKILLS</span>
+          <h2>مهارت‌های تخنیکی</h2>
+          <p>تکنالوژی‌ها و ابزارهایی که در مسیر یادگیری و ساخت پروژه‌ها استفاده می‌کنم.</p>
         </div>
-        <div class="skill">
-          <h3>CSS</h3>
-          <p>طراحی و استایل‌دهی</p>
-        </div>
-        <div class="skill">
-          <h3>JavaScript</h3>
-          <p>تعامل و منطق سایت</p>
-        </div>
-        <div class="skill">
-          <h3>Flutter</h3>
-          <p>ساخت اپلیکیشن موبایل</p>
+
+        <div class="skills-grid">
+          <div class="skill-pill">HTML5</div>
+          <div class="skill-pill">CSS3</div>
+          <div class="skill-pill">JavaScript</div>
+          <div class="skill-pill">Flutter</div>
+          <div class="skill-pill">Dart</div>
+          <div class="skill-pill">GitHub</div>
+          <div class="skill-pill">Responsive Design</div>
+          <div class="skill-pill">Clean Code</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-box">
-        <div class="contact-info">
+    <section id="process">
+      <div class="container">
+        <div class="section-header">
+          <span>PROCESS</span>
+          <h2>روند کاری من</h2>
+          <p>برای ساخت یک پروژه منظم، من از یک روند ساده و واضح پیروی می‌کنم.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">1</div>
+            <h3>تحلیل نیاز</h3>
+            <p>اول هدف پروژه، مخاطب، بخش‌های ضروری و نتیجه نهایی مشخص می‌شود.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">2</div>
+            <h3>طراحی ساختار</h3>
+            <p>ساختار صفحه، رنگ‌بندی، فاصله‌گذاری، منو و تجربه کاربر تنظیم می‌شود.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">3</div>
+            <h3>کدنویسی</h3>
+            <p>کد با ساختار واضح، نام‌گذاری مناسب و طراحی قابل فهم نوشته می‌شود.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">4</div>
+            <h3>تست و آنلاین‌سازی</h3>
+            <p>سایت در موبایل و کمپیوتر تست شده و برای GitHub Pages آماده می‌شود.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>برای ارتباط و همکاری آماده هستم</h2>
+            <p>برای طراحی وب‌سایت، ساخت پروژه درسی، اپلیکیشن موبایل یا مشوره تخنیکی می‌توانید با من در تماس شوید.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary">تماس بگیر</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span>CONTACT</span>
           <h2>تماس با من</h2>
-          <p>برای همکاری، پروژه درسی، طراحی وب‌سایت یا مشوره تخنیکی می‌توانید با من در تماس شوید.</p>
-          <div class="contact-detail">📞 شماره تماس: 0749919185</div>
-          <div class="contact-detail">📧 ایمیل: your-email@example.com</div>
-          <div class="contact-detail">📍 موقعیت: Afghanistan</div>
+          <p>راه‌های ارتباطی من برای همکاری، پروژه یا سوالات تخنیکی.</p>
         </div>
 
-        <form onsubmit="sendMessage(event)">
-          <input type="text" id="name" placeholder="نام شما" required />
-          <input type="email" id="email" placeholder="ایمیل شما" required />
-          <textarea id="message" placeholder="پیام شما" required></textarea>
-          <button class="btn btn-primary" type="submit">ارسال پیام</button>
-        </form>
-      </div>
-    </div>
-  </section>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3>معلومات تماس</h3>
+            <p>از طریق ایمیل یا واتساپ می‌توانید با من در تماس شوید.</p>
+            <div class="contact-row">📧 <span class="ltr">hafiz.sharifi2023@gmail.com</span></div>
+            <div class="contact-row">📞 <span class="ltr">+93 749 919 185</span></div>
+            <div class="contact-row">📍 Afghanistan</div>
+            <div class="contact-row">💼 Software Engineering Student</div>
+          </div>
 
-  <a class="whatsapp-btn" href="https://wa.me/93749919185" target="_blank" title="WhatsApp">☘</a>
+          <div class="contact-form">
+            <h3>ارسال پیام</h3>
+            <p>فورم تماس آماده است. برای ارسال واقعی پیام در آینده می‌توان EmailJS یا Backend اضافه کرد.</p>
+            <form onsubmit="sendMessage(event)">
+              <input type="text" id="name" placeholder="نام شما" required />
+              <input type="email" id="email" placeholder="ایمیل شما" required />
+              <textarea id="message" placeholder="پیام شما" required></textarea>
+              <button class="btn btn-primary" type="submit">ارسال پیام</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-btn" href="https://wa.me/93749919185" target="_blank" title="WhatsApp">💬</a>
 
   <footer>
     <div class="container">
@@ -698,11 +1052,11 @@
       const message = document.getElementById('message').value.trim();
 
       if (!name || !email || !message) {
-        alert('لطفاً تمام خانه‌ها را پر کنید.');
+        alert('لطفاً تمام بخش‌ها را پر کنید.');
         return;
       }
 
-      alert('تشکر ' + name + '! پیام شما آماده ارسال است. برای ارسال واقعی باید backend یا EmailJS اضافه شود.');
+      alert('تشکر ' + name + '! پیام شما ثبت شد. برای ارسال واقعی باید EmailJS یا Backend اضافه شود.');
 
       document.getElementById('name').value = '';
       document.getElementById('email').value = '';
